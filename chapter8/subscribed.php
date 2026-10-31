@@ -12,7 +12,7 @@
         </p>
 
         <p class="center">
-            <a href="coffeeconnection.html">Return to Coffee Connection</a>
+            <a href="coffeeconnection.php">Return to Coffee Connection</a>
         </p>
     </main>
 

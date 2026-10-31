@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
     <footer class="center">
         <address>
             PO Box 1234<br>
