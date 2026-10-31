@@ -2,33 +2,33 @@
 // Chapter 9: PHP Sessions and a Multi-Page Form
 // Name:Bamdad Takmilian
 
-// TODO: Start or resume the session.
+
 session_start();
-// TODO: Create an array containing the valid age choices.
-$valid_ages= ['under 18', '18 - 29', '30 - 49', '50 - 65', 'over 65'];
-// TODO: Process the form only when this page receives a POST request.
+
+$valid_ages = ['under 18', '18 - 29', '30 - 49', '50 - 65', 'over 65'];
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-// TODO: Retrieve the submitted age value.
-$age = $_POST['age'] ?? '';
-// TODO: Validate the submitted age against the allowed choices.
-if (in_array($age, $valid_ages, true)) {
-// TODO: Store the valid age in the session.
-$_SESSION['age'] = $age;
-// TODO: Redirect to this page after successfully processing the POST request. 
-header('Location: survey2.php');
-exit;
-  }
-}
-// TODO: Prevent this page from being viewed if the required response from the previous page is missing.
 
-if($_SERVER['REQUEST_METHOD'] !== 'POST' && !isset($_SESSION['age'])) {
+    $age = $_POST['age'] ?? '';
+
+    if (in_array($age, $valid_ages, true)) {
+
+        $_SESSION['age'] = $age;
+
+        header('Location: survey2.php');
+        exit;
+    }
+}
+
+
+if (!isset($_SESSION['age'])) {
     header('Location: survey.php');
     exit;
 }
 ?>
 <!doctype html>
-<!-- Name: Your Name -->
+<!-- Name: Bamdad Takmilian -->
 <html lang="en">
 
 <head>
@@ -45,8 +45,8 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST' && !isset($_SESSION['age'])) {
             <h1>Anonymous Survey - Page 2</h1>
 
             <img class="survey-image"
-                 src="https://thewisconsinvegetablegardener.files.wordpress.com/2019/05/adm_survey_660x320.png?w=705"
-                 alt="Survey clipboard">
+                src="https://thewisconsinvegetablegardener.files.wordpress.com/2019/05/adm_survey_660x320.png?w=705"
+                alt="Survey clipboard">
         </header>
 
         <main>
@@ -56,43 +56,27 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST' && !isset($_SESSION['age'])) {
                     <legend>What is your highest level of education?</legend>
 
                     <div class="choice">
-                        <input type="radio"
-                               id="hs"
-                               name="education"
-                               value="High School"
-                               required>
+                        <input type="radio" id="hs" name="education" value="High School" required>
                         <label for="hs">High School</label>
                     </div>
 
                     <div class="choice">
-                        <input type="radio"
-                               id="associate"
-                               name="education"
-                               value="Associate Degree">
+                        <input type="radio" id="associate" name="education" value="Associate Degree">
                         <label for="associate">Associate Degree</label>
                     </div>
 
                     <div class="choice">
-                        <input type="radio"
-                               id="bachelors"
-                               name="education"
-                               value="Bachelor's Degree">
+                        <input type="radio" id="bachelors" name="education" value="Bachelor's Degree">
                         <label for="bachelors">Bachelor's Degree</label>
                     </div>
 
                     <div class="choice">
-                        <input type="radio"
-                               id="masters"
-                               name="education"
-                               value="Master's Degree">
+                        <input type="radio" id="masters" name="education" value="Master's Degree">
                         <label for="masters">Master's Degree</label>
                     </div>
 
                     <div class="choice">
-                        <input type="radio"
-                               id="doctoral"
-                               name="education"
-                               value="Doctoral Degree">
+                        <input type="radio" id="doctoral" name="education" value="Doctoral Degree">
                         <label for="doctoral">Doctoral Degree</label>
                     </div>
 

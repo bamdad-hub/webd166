@@ -2,10 +2,10 @@
 // Chapter 9: PHP Sessions and a Multi-Page Form
 // Name: Bamdad Takmilian
 
-// TODO: Start or resume the session.
+
 session_start();
 
-// TODO: Create an array containing the valid education choices.
+
 $valid_education = [
     'High School',
     'Associate Degree',
@@ -14,24 +14,24 @@ $valid_education = [
     'Doctoral Degree'
 ];
 
-// TODO: Process the form only when this page receives a POST request.
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-// TODO: Retrieve the submitted education value.
-$education= ($_POST['education'] ?? '');
 
-// TODO: Validate the submitted education against the allowed choices.
-if(in_array($education, $valid_education, true)){
+    $education = ($_POST['education'] ?? '');
 
-// TODO: Store the valid education value in the session.
-$_SESSION['education'] = $education;
-// TODO: Redirect to this page after successfully processing the POST request.
-header('Location= survey3.php');
- }
+
+    if (in_array($education, $valid_education, true)) {
+
+
+        $_SESSION['education'] = $education;
+
+        header('Location: survey3.php');
+        exit;
+    }
 }
-// TODO: Prevent this page from being viewed if the required
-// responses from the previous pages are missing.
-if (!isset($_SESSION['age']) || ($_SERVER['REQUEST_METHOD'] !== 'POST' && !isset($_SESSION['education']))) {
+
+if (!isset($_SESSION['age'], $_SESSION['education'])) {
     header('Location: survey.php');
     exit;
 }
@@ -54,8 +54,8 @@ if (!isset($_SESSION['age']) || ($_SERVER['REQUEST_METHOD'] !== 'POST' && !isset
             <h1>Anonymous Survey - Page 3</h1>
 
             <img class="survey-image"
-                 src="https://thewisconsinvegetablegardener.files.wordpress.com/2019/05/adm_survey_660x320.png?w=705"
-                 alt="Survey clipboard">
+                src="https://thewisconsinvegetablegardener.files.wordpress.com/2019/05/adm_survey_660x320.png?w=705"
+                alt="Survey clipboard">
         </header>
 
         <main>
@@ -65,43 +65,27 @@ if (!isset($_SESSION['age']) || ($_SERVER['REQUEST_METHOD'] !== 'POST' && !isset
                     <legend>What is your income bracket?</legend>
 
                     <div class="choice">
-                        <input type="radio"
-                               id="under20"
-                               name="income"
-                               value="under $20,000"
-                               required>
+                        <input type="radio" id="under20" name="income" value="under $20,000" required>
                         <label for="under20">Under $20,000</label>
                     </div>
 
                     <div class="choice">
-                        <input type="radio"
-                               id="income20-39"
-                               name="income"
-                               value="$20,000 to $39,000">
+                        <input type="radio" id="income20-39" name="income" value="$20,000 to $39,000">
                         <label for="income20-39">$20,000 to $39,000</label>
                     </div>
 
                     <div class="choice">
-                        <input type="radio"
-                               id="income40-59"
-                               name="income"
-                               value="$40,000 to $59,000">
+                        <input type="radio" id="income40-59" name="income" value="$40,000 to $59,000">
                         <label for="income40-59">$40,000 to $59,000</label>
                     </div>
 
                     <div class="choice">
-                        <input type="radio"
-                               id="income60-80"
-                               name="income"
-                               value="$60,000 to $80,000">
+                        <input type="radio" id="income60-80" name="income" value="$60,000 to $80,000">
                         <label for="income60-80">$60,000 to $80,000</label>
                     </div>
 
                     <div class="choice">
-                        <input type="radio"
-                               id="over80"
-                               name="income"
-                               value="over $80,000">
+                        <input type="radio" id="over80" name="income" value="over $80,000">
                         <label for="over80">Over $80,000</label>
                     </div>
 
