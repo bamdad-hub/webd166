@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+    <title>Pizza Order Form</title>
+
+    
+</head>
+
+<body>
+    <main class="order-card">
+        <section class="form-panel">
+            <header>
+                <h1>Pizza Express</h1>
+                <h2>Ready for Pickup in 15 Minutes!</h2>
+                <p class="price">One 12-inch cheese pizza: $7.95</p>
+            </header>
+
+            <form action="order_me.php" method="post">
+                <div class="customer-fields">
+                    <div class="form-field">
+                        <label for="name">Name:</label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            autocomplete="name"
+                            required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="phone">Phone:</label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            autocomplete="tel"
+                            inputmode="tel"
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                            placeholder="012-345-6789"
+                            aria-describedby="phone-format"
+                            required>
+
+                        <small id="phone-format" class="help-text">
+                            Use the format 012-345-6789.
+                        </small>
+                    </div>
+                </div>
+
+                <fieldset>
+                    <legend>
+                        Choose your toppings — $1.00 per additional topping
+                    </legend>
+
+                    <div class="toppings">
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="extra_cheese">
+                            Extra Cheese
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="pepperoni">
+                            Pepperoni
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="sausage">
+                            Sausage
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="meatballs">
+                            Meatballs
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="tomato">
+                            Tomato
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="onion">
+                            Onion
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="olives">
+                            Olives
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="peppers">
+                            Peppers
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="mushroom">
+                            Mushroom
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="spinach">
+                            Spinach
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="garlic">
+                            Garlic
+                        </label>
+
+                        <label class="topping-option">
+                            <input
+                                type="checkbox"
+                                name="topping[]"
+                                value="cilantro">
+                            Cilantro
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="actions">
+                    <button type="submit">Send Pizza Order</button>
+                    <button type="reset">Clear Form</button>
+                </div>
+            </form>
+        </section>
+
+        <div
+            class="pizza-panel"
+            role="img"
+            aria-label="Fresh pizza with assorted toppings">
+        </div>
+    </main>
+</body>
+
+</html>
